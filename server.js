@@ -9,7 +9,13 @@ dotenv.config();
 await connectDB();
 
 const app = express();
-app.use(cors({origin : "*"}));
+app.use(
+  cors({
+    origin: "https://healthiotdashboard.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Routes
